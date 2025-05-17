@@ -1,0 +1,73 @@
+<h4 class="font-bold p-4 line-1 anim-typewriter">
+  Bienvenidos a <span class="text-orange-600"> &lt; Lord / Dev &gt;</span>
+</h4>
+
+<div class="flex flex-wrap">
+  <div class="w-full md:flex-1 p-4 flex flex-col justify-center">
+    <h6 class="text-4xl font-bold mb-10 text-orange-600">
+      Desarrollador web & Móvil
+    </h6>
+    <h2 class="mb-5">
+      Recuerda si puedes imaginarlo, puedes programarlo. (Alejandro Taboada
+      1997-2020)
+    </h2>
+
+    <p>
+      🎯 Hola yo soy Mario, Ingeniero de Sistemas con más de 5 años construyendo
+      aplicaciones web y móviles eficientes, escalables y centradas en el
+      usuario, usando tecnologías como
+      <span class="text-orange-600">Angular, Flutter, C#, ASP.NET</span> con
+      enfoque en resultados reales y experiencia comprobada.
+    </p>
+  </div>
+  <div class="w-full md:flex-1 p-4 flex flex-col items-center justify-center">
+    <img
+      src="assets/images/profile.jpg"
+      alt="Foto de perfil"
+      class="rounded-full object-cover w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80"
+    />
+  </div>
+</div>
+
+<div class="flex mt-5 flex-wrap gap-4">
+  <div>
+    <button
+      (click)="downloadPdf()"
+      class="w-full m-2 md:w-auto mr-15 self-start bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+    >
+      Descargar CV
+    </button>
+  </div>
+  <div>
+    <button
+      (click)="goToGithub()"
+      class="m-2 self-start bg-violet-600 hover:bg-violet-700 text-white py-2 px-4 rounded-[1vw]"
+    >
+      <i class="fa-brands fa-github"></i>
+    </button>
+    <button
+      (click)="goToFacebook()"
+      class="m-2 self-start bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-[1vw]"
+    >
+      <i class="fa-brands fa-facebook"></i>
+    </button>
+    <button
+      (click)="goToLinkedlin()"
+      class="m-2 self-start bg-slate-50 hover:bg-slate-100 text-black py-2 px-4 rounded-[1vw]"
+    >
+      <i class="fa-brands fa-linkedin-in"></i>
+    </button>
+    <button
+      (click)="goToTiktok()"
+      class="m-2 self-start bg-stone-700 hover:bg-stone-800 text-white py-2 px-4 rounded-[1vw]"
+    >
+      <i class="fa-brands fa-tiktok"></i>
+    </button>
+    <button
+      (click)="goToEmail()"
+      class="m-2 self-start bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-[1vw]"
+    >
+      <i class="fa-solid fa-envelope"></i>
+    </button>
+  </div>
+</div>
