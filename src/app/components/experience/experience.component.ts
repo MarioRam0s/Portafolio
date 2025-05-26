@@ -15,13 +15,13 @@ enum ImagesCatalog {
   styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {
-  ImagesCatalog = ImagesCatalog; // <- esto lo hace accesible en el HTML
+  protected ImagesCatalog = ImagesCatalog; // <- esto lo hace accesible en el HTML
 
-  protected currentIndex = signal(0);
+  protected currentIndex = signal<number>(0);
 
-  isModalOpen = signal(false);
+  protected isModalOpen = signal<boolean>(false);
 
-  images = signal<dataImage[]>([]); // images es un signal
+  protected images = signal<dataImage[]>([]); // images es un signal
 
   private imagesCE: dataImage[] = [
     {
@@ -280,7 +280,7 @@ export class ExperienceComponent {
   ];
 
 
-  protected openModal(typeImage: ImagesCatalog) {
+  protected openModal(typeImage: ImagesCatalog): void {
     switch (typeImage) {
       case ImagesCatalog.Hope:
         this.images.set(this.imagesHope);
@@ -315,16 +315,16 @@ export class ExperienceComponent {
     this.isModalOpen.set(true);
   }
 
-  protected closeModal() {
+  protected closeModal(): void {
     this.isModalOpen.set(false);
   }
 
-  protected nextImage() {
+  protected nextImage(): void {
 
     this.currentIndex.update((i) => (i + 1) % this.images().length);
   }
 
-  protected prev() {
+  protected prevImage(): void {
     this.currentIndex.update((i) => (i - 1 + this.images().length) % this.images().length);
   }
 }
