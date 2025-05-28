@@ -1,27 +1,69 @@
-.line-1{
-    width: 22em;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
+.line {
+  width: 22em;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
 }
 
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 14.5em;}
-}
-@keyframes blinkTextCursor{
-  from{border-right-color: #f54600;}
-  to{border-right-color: transparent;}
+/* Línea 1: empieza de inmediato */
+.anim-typewriter-1 {
+  animation: typewriter 3s steps(20) 1s forwards,
+    blinkTextCursor 500ms steps(20) 1s 6, removeCursor 0s forwards;
+  animation-delay: 1s, 1s, 4s; /* removeCursor se activa tras escribir y parpadear */
 }
 
-h4{
+/* Línea 2: empieza después de que termina la línea 1 (3s + 1s delay) */
+.anim-typewriter-2 {
+  visibility: hidden;
+  animation: reveal 0s 4s forwards, typewriter 3s steps(20) 4s forwards,
+    blinkTextCursor 500ms steps(20) infinite 4s;
+}
+
+/* Mostrar línea 2 justo cuando comienza su animación */
+@keyframes reveal {
+  to {
+    visibility: visible;
+  }
+}
+
+/* Máquina de escribir */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6.9em;
+  }
+}
+
+/* Cursor parpadeando */
+@keyframes blinkTextCursor {
+  0% {
+    border-right-color: #f54600;
+  }
+  49% {
+    border-right-color: #f54600;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+/* Ocultar cursor */
+@keyframes removeCursor {
+  to {
+    border-right: none;
+  }
+}
+
+h4 {
   color: white;
 }
 
+h3 {
+  color: #cb3500;
+}
