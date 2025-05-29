@@ -4,14 +4,17 @@
 </div>
 
 <div class="flex flex-wrap">
-  <div class="w-full md:flex-1 p-4 flex flex-col justify-center">
+  <div class="w-full md:flex-1 flex flex-col justify-center">
     <h6 class="text-4xl font-bold mb-10 text-orange-600">
       Desarrollador web & Móvil
     </h6>
-    <h2 class="mb-5">
-      Recuerda si puedes imaginarlo, puedes programarlo. (Alejandro Taboada
-      1997-2020)
+    <h2>
+      Recuerda si puedes imaginarlo, puedes programarlo.
     </h2>
+    <span class="mb-5 text-orange-600">
+      ( Alejandro Taboada
+      1997-2020 )
+    </span>
 
     <p>
       🍄 Hola yo soy Mario, Ingeniero de Sistemas con más de 5 años construyendo
@@ -20,6 +23,8 @@
       <span class="text-orange-600">Angular, Flutter, C#, ASP.NET</span> con
       enfoque en resultados reales y experiencia comprobada.
     </p>
+
+
   </div>
   <div class="w-full md:flex-1 p-4 flex flex-col items-center justify-center">
     <img src="assets/images/profile.webp" alt="Foto de perfil"
@@ -27,38 +32,57 @@
   </div>
 </div>
 
-<p class="p-4">
-  Email: <span class="text-orange-600">marioramosmejia2243&#64;gmail.com</span>
-</p>
+
+<div class="mt-5">
+  <label for="first_name" class="block mb-2 font-bold text-3xl text-orange-700 dark:text-orange-700"><i
+      class="mr-2 fa-solid fa-envelope"></i>Email</label>
+  <div class="flex flex-wrap">
+    <div id="first_name"
+      class="border mr-2 my-2 flex items-center border-gray-300 text-gray-900 text-sm rounded-lg py-2 px-4 bg-gray-700 border-gray-600 placeholder-gray-400 text-white">
+      <span>marioramosmejia2243&#64;gmail.com</span>
+    </div>
+    <button (click)="goToEmail()"
+      class="mr-2 my-2 self-start bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+    <div class="relative group inline-block">
+      <button (click)="copyText()"
+        class="mr-2 my-2 self-start bg-gray-800 hover:bg-grays-900 text-white py-2 px-4 rounded-lg">
+        <i class="fa-solid fa-copy"></i>
+      </button>
+      <div
+        class="tooltip-arrow tooltip dark:bg-gray-700 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-sm text-white bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        Copiar correo
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <div class="flex mt-5 flex-wrap">
-  <div>
+  <div class="mr-4">
     <button (click)="downloadPdf()"
-      class="w-full m-2 md:w-auto mr-15 self-start bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+      class="w-full mr-2 my-2 md:w-auto mr-15 self-start bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
       <i class="mr-2 fa-solid fa-download hidden md:inline"></i>
       Descargar CV
     </button>
   </div>
   <div>
     <button (click)="goToGithub()"
-      class="m-2 self-start bg-violet-600 hover:bg-violet-700 text-white py-2 px-4 rounded-[1vw]">
+      class="mr-2 my-2 self-start bg-violet-600 hover:bg-violet-700 text-white py-2 px-4 rounded-lg">
       <i class="fa-brands fa-github"></i>
     </button>
     <button (click)="goToFacebook()"
-      class="m-2 self-start bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-[1vw]">
+      class="mr-2 my-2 self-start bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">
       <i class="fa-brands fa-facebook"></i>
     </button>
     <button (click)="goToLinkedlin()"
-      class="m-2 self-start bg-slate-50 hover:bg-gray-300 text-black py-2 px-4 rounded-[1vw]">
+      class="mr-2 my-2 self-start bg-slate-50 hover:bg-gray-300 text-black py-2 px-4 rounded-lg">
       <i class="fa-brands fa-linkedin-in"></i>
     </button>
     <button (click)="goToTiktok()"
-      class="m-2 self-start bg-stone-700 hover:bg-stone-800 text-white py-2 px-4 rounded-[1vw]">
+      class="mr-2 my-2 self-start bg-stone-700 hover:bg-stone-800 text-white py-2 px-4 rounded-lg">
       <i class="fa-brands fa-tiktok"></i>
-    </button>
-    <button (click)="goToEmail()"
-      class="m-2 self-start bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-[1vw]">
-      <i class="fa-solid fa-envelope"></i>
     </button>
   </div>
 </div>

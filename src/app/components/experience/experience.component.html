@@ -404,21 +404,17 @@
       @if (images().length>1) {
       <!-- Botón Anterior -->
       <button type="button" (click)="prevImage()"
-        class="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center px-2 cursor-pointer group focus:outline-none">
+        class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center px-2 cursor-pointer group focus:outline-none">
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-600 hover:bg-orange-700">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
+          <i class="fa-solid text-white fa-chevron-left"></i>
         </span>
       </button>
 
       <!-- Botón Siguiente -->
       <button type="button" (click)="nextImage()"
-        class="absolute right-2 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center px-2 cursor-pointer group focus:outline-none">
+        class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center px-2 cursor-pointer group focus:outline-none">
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-orange-600 hover:bg-orange-700">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
+          <i class="fa-solid text-white fa-chevron-right"></i>
         </span>
       </button>
 

@@ -5,31 +5,36 @@ import { Component } from '@angular/core';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  goToFacebook() {
+  protected goToFacebook(): void {
     window.open('https://www.facebook.com/marior5891', '_blank');
   }
 
-  goToLinkedlin() {
+  protected goToLinkedlin(): void {
     window.open('https://www.linkedin.com/in/mario-ramos-mejia', '_blank');
   }
 
-  goToGithub() {
+  protected goToGithub(): void {
     window.open('https://github.com/MarioRam0s', '_blank');
   }
 
-  goToTiktok() {
+  protected goToTiktok(): void {
     window.open('https://www.tiktok.com/@l0rddev', '_blank');
   }
 
-  goToEmail(): void {
+  protected goToEmail(): void {
     window.location.href =
       'mailto:marioramosmejia2243@gmail.com?subject=Hola&body=Quiero contactarte';
   }
 
-  downloadPdf(): void {
+  protected downloadPdf(): void {
     const link = document.createElement('a');
     link.href = 'assets/pdf/CV-MarioRamos.pdf';
     link.download = 'CV-MarioRamos.pdf';
     link.click();
+  }
+
+  protected copyText(): void {
+    const text = document.getElementById('first_name')?.textContent ?? '';
+    navigator.clipboard.writeText(text);
   }
 }

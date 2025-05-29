@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'component-header',
@@ -6,46 +6,44 @@ import { AfterViewInit, Component, Renderer2 } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements AfterViewInit {
-  constructor(private renderer: Renderer2) {}
+export class HeaderComponent {
+  constructor() { }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
+  lastScrollTop = 0;
+  hideHeader = false;
 
-      const scrollActive = () => {
-        let current = '';
+  @HostListener('window:scroll', [])
+  protected onScroll(): void {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        sections.forEach((section) => {
-          const el = section as HTMLElement;
-          const sectionTop = el.offsetTop - 60; // Altura navbar fija
-          const sectionHeight = el.offsetHeight;
+    this.hideHeader = scrollTop > this.lastScrollTop;
+    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
 
-          if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-          ) {
-            current = el.getAttribute('id')!;
-          }
-        });
+  @ViewChild('menuToggle', { static: false }) menuToggle!: ElementRef;
 
-        navLinks.forEach((link) => {
-          link.classList.remove('bg-white', 'text-orange-700');
-          link.classList.add('text-white');
+  @HostListener('document:click', ['$event'])
+  protected handleClickOutside(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
 
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('bg-white', 'text-orange-700');
-            link.classList.remove('text-white');
-          }
-        });
-      };
+    const menu = document.querySelector('nav');
+    const isInsideMenu = menu?.contains(target);
+    const isMenuButton = this.menuToggle?.nativeElement?.contains(target);
 
-      // Ejecutar una vez al cargar la página
-      scrollActive();
+    // Si clic no es ni en menú ni en botón, cerrar menú
+    if (!isInsideMenu && !isMenuButton) {
+      const checkbox = this.menuToggle.nativeElement as HTMLInputElement;
+      checkbox.checked = false;
+    }
+  }
 
-      // Agregar listener para scroll
-      window.addEventListener('scroll', scrollActive);
-    });
+  protected onMenuButtonClick(event: Event): void {
+    // Evita que el evento se propague y se dispare el HostListener de clic fuera
+    event.stopPropagation();
+  }
+
+  protected closeMenu(): void {
+    const checkbox = this.menuToggle.nativeElement as HTMLInputElement;
+    checkbox.checked = false;
   }
 }
